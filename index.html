@@ -55,16 +55,6 @@ window.location.href = "cases.php";
 <script>
 alert("Sign Up First");
 </script>
-<?php
-}
-if ($resultcheck1>0) {
-while($row=$result1->fetch_assoc())
-{
-if($row['password']==$password)
-{
-session_start();
-$_SESSION['mobilep']=$mobile;
-?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
