@@ -1,97 +1,17 @@
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
- 
-<script>
-$(document).ready(function(){
-$("#signuppage").show();
-$( "#mobile" ).prop( "disabled", true );
-$("#info").hide();
-$("#otppage").show();
-document.getElementById("background").style.filter="blur(5px)";
-
-var xml= new XMLHttpRequest();
-  xml.open("GET","otp.php?mobile="+<?php echo $mobile ?>,true)
-  xml.send();
-  xml.onreadystatechange=function(){
-  if(xml.readyState==4&&xml.status==200)
-  {
-  alert(xml.responseText);
-  }
-  }
-
-});
-</script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-<script>
-$(document).ready(function(){
-$("#signuppage").show();
-$( "#mobile" ).prop( "disabled", true );
-$("#info").hide();
-$("#otppage").show();
-document.getElementById("background").style.filter="blur(5px)";
-
-var xml= new XMLHttpRequest();
-  xml.open("GET","otp.php?mobile="+<?php echo $mobile ?>,true)
-  xml.send();
-  xml.onreadystatechange=function(){
-  if(xml.readyState==4&&xml.status==200)
-  {
-  alert(xml.responseText);
-  }
-  }
-
-});
-</script>
 <!DOCTYPE html>
-
 <html>
 <head>
-  <title></title>
+	<title>VPI MP</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script>
- 
-  $(document).ready(function(){
-  $("#otpcheck").click(function(){
-  var mobile=document.getElementById('mobile').value;    
-  var otprec=document.getElementById('otprec').value;
-  var xml= new XMLHttpRequest();
-  xml.open("GET","checkotp.php?mobile=" +mobile+ "&otprec="+otprec,true);
-  xml.send();
-  xml.onreadystatechange=function(){
-  if(xml.readyState==4&&xml.status==200)
-  {
-  var resp = xml.responseText;
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   
-  if(resp == "OTP Is Right.")
-  { alert(resp);
-    $("#otppage").css({"display":"none"});
-    $("#background").css({"filter":"blur(0px)"});
-    $("#foccus").focus();
-  } 
- else{
-    var str = "otp wrong";
-    var mobilenum=document.getElementById('mobile').value;
-    var xmml =new XMLHttpRequest();
-    xmml.open("GET","check2otp.php?result="+str+"&mobilenum="+mobilenum,true);
-    xmml.send();
-    xmml.onreadystatechange=function(){
-  if(xmml.readyState==4&&xmml.status==200)
-  {
-  var respo = xmml.responseText;
-  alert(respo);
- }
- }
- }
- }
- }
- });
- });
-
-
-
-
+  <script>
   $(document).ready(function(){
   $("#bar").click(function(){
   $("#slider").show(); 
@@ -148,7 +68,7 @@ var xml= new XMLHttpRequest();
   $("#lfu").hide();
   $("#lfp").show(); 
   });
-  $("#lfub").click(function(){
+	$("#lfub").click(function(){
   $("#lfp").hide();
   $("#lfu").show(); 
   });
@@ -164,7 +84,7 @@ var xml= new XMLHttpRequest();
   
 
   $("#signup").click(function(){
-  $("#inf").show();
+	$("#inf").show();
  document.getElementById('background').style.filter="blur(5px)";
   });
     $("#cross").click(function(){
@@ -181,107 +101,7 @@ var xml= new XMLHttpRequest();
  });
 
 
-  });
-  function checkpass(){
-  $(document).ready(function(){
- 
- var firstpass=document.getElementById("pass_box").value;
- var secondpass=document.getElementById("conpass_box").value;
- if(firstpass!=secondpass)
- {
- alert("Password Should be same."); 
- }
- else{
-  var strlen=firstpass.length;
-  if(strlen==0)
-  {
-  alert("Password should not be empty.");
-  }
-  else{
-  if(strlen>"6")
-  {
-  }
-  else{
-  alert("Password should have at least 6 characters.");
-  }
-  }
- }
-  });
-  }
-  function checkpassfp(){
-  $(document).ready(function(){
- 
- var firstpass=document.getElementById("pass_boxp").value;
- var secondpass=document.getElementById("conpass_boxp").value;
- if(firstpass!=secondpass)
- {
- alert("Password Should be same."); 
- }
- else{
-  var strlen=firstpass.length;
-  if(strlen==0)
-  {
-  alert("Password should not be empty.");
-  }
-  else{
-  if(strlen>"6")
-  {
-  }
-  else{
-  alert("Password should have at least 6 characters.");
-  }
-  }
- }
-  });
-  }
-
-  function checkpassword(){
-  $(document).ready(function(){
- 
- var firstpass=document.getElementById("pass_box").value;
- var secondpass=document.getElementById("conpass_box").value;
- if(firstpass!=secondpass)
- {
- alert("Account Could Not Created. Because Password should be same."); 
-   return false;
-
- }
- else{
-  var strlen=firstpass.length;
-  if(strlen>"6")
-  {
-  }
-  else{
-  alert("Account Could Not Created. Because Password should have at least 6 characters.");
-  return false;
-  }
-  }
-  });
-  }
-  function checkpasswordfp(){
-  $(document).ready(function(){
- 
- var firstpass=document.getElementById("pass_boxp").value;
- var secondpass=document.getElementById("conpass_boxp").value;
- if(firstpass!=secondpass)
- {
- alert("Account Could Not Created. Because Password should be same."); 
-   return false;
-
- }
- else{
-  var strlen=firstpass.length;
-  if(strlen>"6")
-  {
-  }
-  else{
-  alert("Account Could Not Created. Because Password should have at least 6 characters.");
-  return false;
-  }
-  }
-  });
-  }
-
+	});
   
   $(document).ready(function(){
   $("#feature").on('click',function() {
@@ -360,62 +180,11 @@ var xml= new XMLHttpRequest();
 
 
 
-  function checkmobile(){
-  $(document).ready(function(){
-  var mobile=document.getElementById("mobile_box").value;
-  var xml= new XMLHttpRequest();
-  xml.open("GET","checkemail.php?mobile="+mobile,true)
-  xml.send();
-  xml.onreadystatechange=function(){
-  if(xml.readyState==4&&xml.status==200)
-  {
-  if(xml.responseText!=0)
-  {
-  alert("Mobile No. already exist.")
-  }
-  }
-  }
-  });
-  }
-
-
-
-$(document).ready(function(){
-$("#search").click(function(){
-var searching = document.getElementById("inp").value;
-var xhhttp = new XMLHttpRequest();
-xhhttp.open("GET","search.php?find="+searching,true);
-xhhttp.send();
-xhhttp.onreadystatechange = function(){
-  if(xhhttp.readyState == 4 && xhhttp.status == 200)
-  {
-      var finds = xhhttp.responseText;
-      
-      if(finds == "Yes")
-      {
-        $("#register").css({"display":"block"});
-        document.getElementById("register").innerHTML = "approval : "+finds;
-          
-      }
-      else if(finds == "No"){
-          $("#register").css({"display":"block"});
-        document.getElementById("register").innerHTML = "approval : " +finds;
-      }
-      else{
-          alert ('your registration ID is wrong');
-         }
-  }
-}
-
-});
-});
-
-
-  </script>
+ 
+	</script>
 <meta name="viewport" content="width=device-width, intial-scale=1">
   
-  <style>
-
+	<style>
     td{
     color:white;
     font-size:25px;
@@ -427,9 +196,10 @@ xhhttp.onreadystatechange = function(){
     table{
     margin-top:10px;
     }
-    #cut{
-    font-size:20px;
-    box-shadow:0 0 0px;
+    #cu{
+    font-size:18px;
+    box-shadow: 0 0 0px;
+
     }
     #slider{
     width:300px;
@@ -445,7 +215,7 @@ xhhttp.onreadystatechange = function(){
     margin:auto;
     }
     #x1,#x2,#x3{
-    margin-left:35px;
+    margin-left:60px;
     width:200px;
     height:270px;
     background-color:white;
@@ -518,16 +288,16 @@ xhhttp.onreadystatechange = function(){
     #xyz,#sis,#contactus,#xyzan{
     margin-top:0px;
     width:100%;
-    padding-top:70px;
+    padding-top:30px;
     }
     #contactus{
     }
     #whatwedo{
     border-radius:5px;
-    margin-top:70px;
+    margin-top:50px;
     width:100%;
     height:auto;
-    padding-top:50px;
+    padding-top:10px;
     padding-bottom:50px;
     float:left;
     }
@@ -535,33 +305,33 @@ xhhttp.onreadystatechange = function(){
     display:none;
     }
 
-    #logo{
-      font-size: 35px;
-      font-family: arial;
-      color:white;
-      padding:15px;
-      float:left;
+		#logo{
+			font-size: 35px;
+			font-family: arial;
+			color:white;
+			padding:15px;
+			float:left;
       padding-top:15px;
       font-family:ubuntu;
       background-color:black;
       color:white;
-      margin-left:7%;
+	    margin-left:7%;
       width:140px;
       margin-top:5px;
     }
-     #background{
-      width:100%;
+	   #background{
+	    width:100%;
       background-image: -webkit-linear-gradient(-30deg , #0086b3 50%, black 50%);
-      height:110vh;
-      background-size: cover;
-          background-position: center;
-            }
-            #navigation{
-            font-family: Segoe UI;
-              font-size: 25px;
-              padding-top:30px;
-              margin-left:4%;
-              margin-top:0px;           
+			height:700px;
+			background-size: cover;
+	        background-position: center;
+		        }
+		        #navigation{
+        		font-family: Segoe UI;
+             	font-size: 25px;
+		        	padding-top:30px;
+		        	margin-left:4%;
+		        	margin-top:0px;		        
               float:left;
             }
                 #whi{
@@ -569,9 +339,9 @@ xhhttp.onreadystatechange = function(){
     }
 
 
-            
+		        
             #home,#feature,#help,#contactusbutton{
-               text-decoration: none;
+		        	 text-decoration: none;
                      color:white;
                      font-size: 25px;
                      text-align: center;
@@ -581,10 +351,10 @@ xhhttp.onreadystatechange = function(){
                  padding-right:10px;
                  border-left:1px solid white;
                  cursor:pointer;
-            }
+		        }
                 
             #signupfa,#signup{
-              font-family: arial;
+            	font-family: arial;
             float:right;
             font-size: 20px;
             background-color:white;
@@ -597,42 +367,16 @@ xhhttp.onreadystatechange = function(){
   
             }
             hr{
-              margin-top: 35px;
+            	margin-top: 35px;
             }
-            #register{
-                display:none;
-            
-            }
-           
-            
             #welcome_text{
-                
-              position:absolute;
+            	position:absolute;
                 margin-left:60%;
-              width:30%;
-              height:150px;
+            	width:30%;
+            	height:150px;
               float:right;
               margin-top:270px;
-             
-             
-            }
-   #register{
-    font-family: arial;
-    color:teal;
-    width:50%;
-    font-weight: 700;
-    font-size:22px;
-    background-color: white;
-    border:1px solid white;
-    border-radius:15px;
-    margin:auto;
-    margin-top: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    text-align:center;
-    cursor:pointer;
-   
-   }
+              display: none;       }
    #signuppage{
    position:absolute;
    width:75%;
@@ -645,22 +389,22 @@ xhhttp.onreadystatechange = function(){
    z-index:1;
    }
    input
-    color:white;
-    font-size: 30px;
+   	color:white;
+   	font-size: 30px;
    }
  #space{
-  height:600px;
-  width:28%;
-  background-color:teal;
-  box-shadow:0 0 8px;
-  float:left;
+ 	height:600px;
+ 	width:28%;
+ 	background-color:teal;
+ 	box-shadow:0 0 8px;
+ 	float:left;
 
 
  }
  #info,#logininfo,#coverbox{
-  height:600px;
-  width:50%;
-  margin-left:50%;
+ 	height:600px;
+ 	width:50%;
+ 	margin-left:50%;
   border:1px solid black;
 
  }
@@ -691,45 +435,36 @@ background-color:#168591;
   margin-left:0%;
   float:left;
 }
-#otppage{
-    position:fixed;
-    margin-left:39%;
-    width:22%;
-    height:50%
-    margin-top:150px;
-    display:none;
-    background-color:white;
-    z-index:1;
-    box-shadow:0px 0px 3px white;
-}
+
+
  #suwe{
-  font-family: Segoe UI;
-  font-size: 25px;
-  margin-top:40px;
-  font-weight: 700;
+ 	font-family: Segoe UI;
+ 	font-size: 25px;
+ 	margin-top:40px;
+ 	font-weight: 700;
     color: rgba(112,87,87,1);
-  text-align:center;
+ 	text-align:center;
  }
  #mobile_box,#pass_box,#conpass_box,#email_box,#mobile_boxlogin,#pass_boxlogin,#mobile_boxp,#pass_boxp,#policesn,#conpass_boxp{
-  outline:none;   
-  font-size: 17px;
-  width:80%;
-  border-radius:8px;
-  margin: 0px; 
+ 	outline:none;		
+ 	font-size: 17px;
+ 	width:80%;
+ 	border-radius:8px;
+ 	margin: 0px; 
   border:1px solid black;
-  color:black;
-  padding:8px;
+ 	color:black;
+ 	padding:8px;
      padding-left:15px;
      border-color: white;
 box-shadow:0 0 3px ;
  }
  #firstname{
-    outline:none;
-    font-size:17px;
-  float:left;
-  width:32%;
-  border-radius: 8px;
-   border:1px solid white;  
+ 		outline:none;
+		font-size:17px;
+ 	float:left;
+ 	width:32%;
+ 	border-radius: 8px;
+   border:1px solid white; 	
 margin: 2px;
     border-color: white;
 box-shadow:0 0 3px ;
@@ -738,13 +473,13 @@ box-shadow:0 0 3px ;
          color:black;
  }
   #lastname{
-    outline:none;
-    color:black;
+ 		outline:none;
+		color:black;
 
-    font-size:20px;
-    border-radius: 8px;
-  border:1px solid white;
-  width:32%;
+  	font-size:20px;
+  	border-radius: 8px;
+ 	border:1px solid white;
+ 	width:32%;
 
   margin: 1px;
     margin-left:8px;
@@ -755,27 +490,27 @@ box-shadow:0 0 3px ;
          padding-left:16px;
  }
  #c1{
-  font-size:15px;
-  margin-left:50px;
-  float:left;
+ 	font-size:15px;
+ 	margin-left:50px;
+ 	float:left;
  }
  #createacc{
-  color:white;
-  border:1px solid pink;
-  background-color:rgba(219,35,35,1);
-  margin-left:50px;
-  width:30%;
-  text-align: center;
-  border-radius: 4px;
-  font-size: 20px;
-  padding: 5px;
+ 	color:white;
+ 	border:1px solid pink;
+ 	background-color:rgba(219,35,35,1);
+ 	margin-left:50px;
+ 	width:30%;
+ 	text-align: center;
+ 	border-radius: 4px;
+ 	font-size: 20px;
+ 	padding: 5px;
 
  }
  #googleimg,#facebookimg,#twitterimg{
-  width:32px;
-  height:32px;
-  margin-left:50px;
-  float:left;
+ 	width:32px;
+ 	height:32px;
+ 	margin-left:50px;
+ 	float:left;
  }
   #bar{float:left;
     margin-top:30px;
@@ -784,18 +519,20 @@ box-shadow:0 0 3px ;
     color:white;
     display:none;
   }
-  #otppage{
-  position:fixed;
-  margin-left:39%;
-  width:22%;
-  height:50%;
-  margin-top:150px;
-  display:none;
-  background-color:white;
-  z-index:1;
-  box-shadow:0 0 3px white;
 
+   .carousel-inner img {
+    width: 35%;
+    height:40%;
+padding: 6px;
+border:1px solid black;
+
+margin-left: 33%;
+float: center;
   }
+  .carousel-item{
+    margin-top:10px;
+  }
+
   #signinbutton,#loginbutton{
   width:150px;
   text-align:center;
@@ -835,9 +572,6 @@ box-shadow:0 0 3px ;
   }
   @media(max-width:900px)
   {
-     #welcome_text{
-         display:none;
-     }
     #inf,#signupfp{
     width:80%;
     margin-left:10%;
@@ -898,23 +632,15 @@ box-shadow:0 0 3px ;
   #bar{
     display:block;
   }
-  #logo{
-    
-  }
+  
   #navigation{
   display: none;
   }
   #welcome_text{
     width:70%;
   }
-
-  }
   @media(max-width:700px)
   {
-       
-   #welcome_text{
-       display:none;
-   }      
   #whi{
   display:none;
   }
@@ -932,17 +658,15 @@ box-shadow:0 0 3px ;
   #blogin{
   width:100%;
   }
-  }
 
   @media(max-width:542px)
-  
   {
   #policen,#policen1,#policen2,#policen3{
-  width:80%;
+  width:90%;
   margin-left:5%;
   }
 #x1,#x2,#x3{
-width:70%;
+width:80%;
 margin-left:10%;
     
 }
@@ -972,29 +696,16 @@ margin-left:10%;
   #logo{
     text-align:center;
   }
-  }
+ 
+  
 
-  </style>
+	</style>
 </head>
 <body>
-    <div id="otppage">
-    <div style="margin-left:27px;margin-top:20px;font-size:18px;font-weight:550;font-family:roboto;">Mobile No.</div>
-   <div style="margin-left:7%;width:80%;margin-top:10px;"><input name="otprec" id="mobile" value="<?php echo 
-   $mobile; ?>" style="width:100%;border:0px solid black;font-size:23px;border-radius:9px;padding:7px;
-   box-shadow:0vh 0vh 3px;" type="text"> </div>
-   <div style ="margin-left:27px;margin-top:20px;font-size:18px;font-weight:550;font-family:roboto;">Enter OTP</div>
-   
-    <div style="margin-left:7%;width:80%;margin-top:10px;"><input name ="otprec" id="otprec" style="width:100%;border:0px solid black;font-size:23px;border-radius:9px;padding:7px;
-   box-shadow:0vh 0vh 3px;" type="text"></div>
-   <br>
-   <div id= "otpcheck" style="cursor:pointer;margin-left:7%;margin-top:20px;width:83%;
-   background-color:black;color:white;text-align:center;padding:12px;font-size:23px;font-family:roboto;border-radius:8px;">Confirm</div>
-  
-    </div>
     <div id="inf">
       <div style="text-align:right;padding-right:20px;padding-top:10px;"> 
       <i  id="cross"  style="float:right;cursor:pointer;"class="fa fa-times fa-2x"  aria-hidden="true"></i></div>
-      <form onSubmit="checkpassword()" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
+      <form onSubmit="checkpassword()" action="/index.php" method="post">
       <div id="suwe">SignUp With Mobile</div><br>
       <div style="margin-left: 50px;"><input required id="mobile_box" onfocusout="checkmobile()" name="mobile" placeholder="Mobile No."></div><br>
              <div style="margin-left: 50px;"><input  required id="pass_box" type="password" name="password" placeholder="Password"></div><br>
@@ -1015,7 +726,7 @@ margin-left:10%;
  <div id="signupfp">
       <div style="text-align:right;padding-right:20px;padding-top:10px;"> 
       <i  id="crossan"  style="float:right;cursor:pointer;"class="fa fa-times fa-2x"  aria-hidden="true"></i></div>
-      <form onSubmit="checkpasswordfp()" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
+      <form >
       <div id="suwe">SignUp For Police Station</div><br>
       <div style="margin-left: 50px;"><input required id="mobile_boxp" onfocusout="checkmobile()" name="mobile" placeholder="Mobile No."></div><br>
              <div style="margin-left: 50px;"><input  required id="pass_boxp" type="password" name="password" placeholder="Password"></div><br>
@@ -1051,18 +762,13 @@ margin-left:10%;
   <tr><td id="tps">Top Police Stations</td></tr>
   <tr><td id="feat">Features</td></tr>
   <tr><td id="cu">Contact Us</td></tr>
-  <tr><td id="si">Sign Up</td></tr>
-  <tr><td id="sifa">Sign Up For Administration</td></tr>
+  <tr><td id="si">Sign In</td></tr>
+  <tr><td id="sifa">Sign In For Administration</td></tr>
   
   </table>
   </div>
   <div id="bar"><i class="fa fa-bars"></i></div>
-  <div id="logo"> Police <div style="font-size:17px;margin-left:50px;">ON WORK</div> 
-  
-
-  
-  </div>
-  
+  <div id="logo"> Police <div style="font-size:17px;margin-left:50px;">ON WORK</div> </div>
  
   <div id="navigation"><span id="home" style="border-left:0px solid white;">Home</span>
     <span id="help">Top Police Stations</span>
@@ -1071,33 +777,23 @@ margin-left:10%;
     
   </div>
    <div id="whi">
-   <div id="signup">Sign Up</div>
-   <div id="signupfa">Sign Up As Administration</div>
+   <div id="signup">Sign In</div>
+   <div id="signupfa">Sign In As Administration</div>
    </div>
 
 <div id="welcome_text" >
-   <div id="welcomesome" style="text-align: center;width:100% ;font-size: 50px;color:white;font-family:ubuntu;margin-bottom:20px;">Welcome!</div>
-
-   <div id="welcomesome" style="text-align: center;width:100% ;font-size: 30px;color:white;font-family:ubuntu;margin-bottom:10px;">Check FIR Status</div>
-
-  <div style="text-align: center;width:100%;font-size: 30px;color:white;background-color:black;margin-left:10px;">
-      <input type = "text" id="inp" style = "font-size:18px;width:60%;border:2px groove gray;padding:10px;outline:none;border-radius:20px;" placeholder="Enter FIR No" > <i id="search" class="fa fa-search" aria-hidden="true"></i>
-      
-  </div>
-  <a  style="text-decoration:none;border-left:0px solid white;"><div id="register"></div></a>
-
-  </div>
-
-
+	<div id="welcomesome" style="text-align: center;width:100% ;font-size: 40px;color:white;">WELCOME!</div>
+	
+	
+</div>
 <div id="loginbox">
-
 <div id="blogin">
 <div id="front">
 </div>
 <div id="back">
 <div id="lfu">
 <div style="margin-left:27px;margin-top:20px;font-size:18px;font-weight:550;font-family:roboto;">Mobile No.</div>
-<form  action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
+<form>
   <div style="margin-left:7%;width:80%;margin-top:10px;"><input id="foccus" name="loginmobile" required style="width:100%;border:0px solid black;font-size:23px;border-radius:9px;padding:7px;box-shadow:0vh 0vh 3px;" type="text"></div>
 <div style="margin-left:27px;margin-top:20px;font-size:18px;font-weight:550;font-family:roboto;">Password</div>
 <div style="margin-left:7%;width:80%;margin-top:10px;"><input  required name="loginpassword" style="width:100%;border:0px solid black;font-size:23px;border-radius:9px;padding:7px;box-shadow:0vh 0vh 3px;" type="password"></div>
@@ -1115,7 +811,7 @@ Dont have Account <span id="sufub" style="cursor:pointer;color:purple;font-weigh
 </div>
 <div id="lfp">
 <div style="margin-left:27px;margin-top:20px;font-size:18px;font-weight:550;font-family:roboto;">Mobile No.</div>
-<form  action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
+<form  >
   <div style="margin-left:7%;width:80%;margin-top:10px;"><input  required name="loginmobile" style="width:100%;border:0px solid black;font-size:23px;border-radius:9px;padding:7px;box-shadow:0vh 0vh 3px;" type="text"></div>
 <div style="margin-left:27px;margin-top:20px;font-size:18px;font-weight:550;font-family:roboto;">Password</div>
 <div style="margin-left:7%;width:80%;margin-top:10px;"><input  required name="loginpassword" style="width:100%;border:0px solid black;font-size:23px;border-radius:9px;padding:7px;box-shadow:0vh 0vh 3px;" type="password"></div>
@@ -1128,21 +824,13 @@ Make sure it's at least 15 characters OR at least 8 characters including a numbe
 <div style="text-align:right;font-size:14px;font-family:Segoe UI;margin-right:7%;width:89%;margin-top:10px;font-weight:500;">
 Dont have Account <span id="sufpb" style="cursor:pointer;color:purple;font-weight:700">Sign UP</span>
 </div>
-
 <div style="margin-left:27px;margin-top:10px;font-size:18px;font-weight:550;font-family:roboto;">Log In As</div>
 <div id="lfub" style="cursor:pointer;margin-left:8%;margin-top:10px;width:76%;background-color:rgb(0, 187, 255);color:white;text-align:center;padding:12px;font-size:23px;font-family:roboto;border-radius:8px;">User</div>
+</div></div>
+</div></div>
 </div>
-
-
-</div>
-</div>
-</div>
-
-</div>
-
-
 <div id="xyzan" style="margin-top:10px;">
-<h2 style="text-align:center;font-family:arial;font-size:30px;margin:auto;margin-bottom:20px;">Top Police Stations In MP</h2>
+<h2 style="text-align:center;font-family:ubuntu;font-size:32px;margin:auto;margin-bottom:50px;">Top Police Stations In MP</h2>
 <div id="opt" style="width:90%;height:100%;margin:auto;">
 <div id="policen">
 <img src="police4.jpg" style="width:100%"> 
@@ -1155,7 +843,6 @@ Dont have Account <span id="sufpb" style="cursor:pointer;color:purple;font-weigh
 <i class="fa fa-star"></i>
 <i class="fa fa-star"></i>
 </div></div>
-
 <div id="policen2">
 <img src="police4.jpg" style="width:100%"> 
 <div style="margin-top:5px;margin-bottom:2px;font-size:14px;font-weight:bold;font-family:roboto;">MP Police , Bhopal</div>
@@ -1167,7 +854,6 @@ Dont have Account <span id="sufpb" style="cursor:pointer;color:purple;font-weigh
 <i class="fa fa-star"></i>
 <i class="fa fa-star"></i>
 </div></div>
-
 <div id="policen3">
 <img src="police4.jpg" style="width:100%"> 
 <div style="margin-top:5px;margin-bottom:2px;font-size:14px;font-weight:bold;font-family:roboto;">MP Police , Bhopal</div>
@@ -1178,8 +864,8 @@ Dont have Account <span id="sufpb" style="cursor:pointer;color:purple;font-weigh
 <i class="fa fa-star"></i>
 <i class="fa fa-star"></i>
 <i class="fa fa-star"></i>
-</div></div>
-
+</div>
+</div>
 <div id="policen4">
 <img src="police4.jpg" style="width:100%"> 
 <div style="margin-top:5px;margin-bottom:2px;font-size:14px;font-weight:bold;font-family:roboto;">MP Police , Bhopal</div>
@@ -1191,82 +877,99 @@ Dont have Account <span id="sufpb" style="cursor:pointer;color:purple;font-weigh
 <i class="fa fa-star"></i>
 <i class="fa fa-star"></i>
 </div></div>
-</div>
-</div>
-
+</div></div>
 <div id="whatwedo" style="margin-bottom:250px;">
-<h1 style="text-align:center;font-family:arial;width:210px;margin:auto;margin-bottom:30px;font-size:30px;">What We Do?</h1>
+<h1 style="font-size:30px;text-align:center;font-family:ubuntu;width:210px;margin:auto;margin-bottom:70px;">What We Do ?</h1>
 <div id="whl">
 <div id="x1">
 <h2 style="font-family:Tahoma;text-align:center;margin-top:30px;">Online <br> FIR</h2> 
-<p style="font-size:14px;font-family:verdana;width:90%;margin-left:5%;margin-top:30px;">Complaint can be loged online and the registered FIR can be directed with OCR based digital signature on text formatted to police station within reach.
+<p style="font-size:11px;font-family:verdana;width:90%;margin-left:5%;margin-top:30px;">Complaint can be loged online and the registered FIR can be directed with OCR based digital signature on text formatted to police station within reach.
 </p></div>
 <div id="x2">
 <h2 style="font-family:Tahoma;text-align:center;margin-top:30px;">Data<br> Management</h2> 
-<p style="font-size:14px;font-family:verdana;width:90%;margin-left:5%;margin-top:30px;">Assures the privacy of personal data and documents & details , documents and conversation with police.
+<p style="font-size:11px;font-family:verdana;width:90%;margin-left:5%;margin-top:30px;">Assures the privacy of personal data and documents & details , documents and conversation with police.
 </p></div>
 <div id="x3">
 <h2 style="font-family:Tahoma;text-align:center;margin-top:30px;">Conversation</h2> 
-<p style="font-size:14px;font-family:verdana;width:90%;margin-left:5%;margin-top:30px;">A single  onlinem portal where filing FIR and direct  interaction with police and comparative assessment of policestation based on  rating given by complaintant.
+<p style="font-size:11px;font-family:verdana;width:90%;margin-left:5%;margin-top:30px;">A single  onlinem portal where filing FIR and direct  interaction with police and comparative assessment of policestation based on  rating given by complaintant.
 
 </p></div></div>
 <div style="z-index:-1;margin-top:100px;width:99%;height:240px;background-color:rgb(0, 134, 179,0.5);position:absolute;"></div>
 <div style="z-index:-1;margin-top:140px;width:99%;height:240px;background-color:#0086b3;position:absolute;"></div></div>
-
-</div>
-<div id="xyz" style="height:auto;padding-bottom:350px;display:none;">
-<h1 style="text-align:center;font-family:arial;width:280px;margin:auto;">What User Says?</h1>
-<div id="aboutfir2" style="height:auto;">
-<div id="boxs" style="float:left;color:rgb(0,0,50);border-left:0px solid black;font-size:20px;text-align:center;font-family:arial;margin-top:5px;">
-It is really the best website and it find my case got registered in station, and case got solved it a week.
-<div id="img" style="margin-right:30px;width:50px;margin-left:30px;margin-top:10px;margin-bottom:15px;float:left;">
-<img src="download.jfif" style="width:100%;border-radius:200px;">
-</div>
-<div id="commentuser">
-<div style="margin-top:10px;text-align:left;margin-left:40px;font-weight:600;">Mr. John</div>
-<div style="margin-top:1px;text-align:left;margin-left:40px;font-size:17px;">Used it 5 times.</div>
-</div>
-</div>
-<div id="boxs" style="border-left:4px solid black;font-size:20px;margin-left:2%;float:left;color:rgb(0,0,50);font-size:20px;text-align:center;font-family:arial;margin-top:5px;">
-It is really the best website and it find my case got registered in station, and case got solved it a week.<div id="img" style="margin-right:30px;width:50px;margin-left:30px;margin-top:10px;margin-bottom:15px;float:left;">
-<img src="download (1).jfif" style="width:100%;border-radius:200px;">
-</div>
-<div id="commentuser">
-<div style="margin-top:10px;text-align:left;margin-left:40px;font-weight:600;">Amy</div>
-<div style="margin-top:1px;text-align:left;margin-left:40px;font-size:17px;">Used it 3 times.</div>
-</div>
-</div>
-<div id="boxs" style="border-left:4px solid black;font-size:20px;margin-left:2%;float:left;color:rgb(0,0,50);font-size:20px;text-align:center;font-family:arial;margin-top:5px;">
-This is realy a best plateform to make FIR fast. I got its response very fast as I thaught. Really It is a very helpful for me.
-<div id="img" style="margin-right:30px;width:50px;margin-left:30px;margin-top:10px;margin-bottom:15px;float:left;">
-<img src="download (1).jfif" style="width:100%;border-radius:200px;">
-</div>
-<div id="commentuser">
-<div style="margin-top:10px;text-align:left;margin-left:40px;font-weight:600;">Amy</div>
-<div style="margin-top:1px;text-align:left;margin-left:40px;font-size:17px;">Used it 3 times.</div>
-</div>
-</div>
-
-
-</div>
 </div>
 <div id="sis" style="height:auto;padding-bottom:60px;">
 <h1 style="font-size:30px;text-align:center;font-family:arial;margin:auto;">Search In Social Media.</h1>
 <div style="margin:auto;margin-top:50px;width:350px;height:100px;">
-<a href="https://m.facebook.com/MP-Police--105407174339239/"><img src="facebook.png" style="width:50px;margin-left:30px;box-shadow:0 0 5px;border-radius:7px;"></a>
-<img src="insta.jfif" style="width:50px;margin-left:30px;box-shadow:0 0 5px;border-radius:7px;">
-<img src="twitter.png" style="width:50px;margin-left:30px;box-shadow:0 0 5px;border-radius:7px;">
-<img src="linkdin.png" style="width:50px;margin-left:30px;box-shadow:0 0 5px;border-radius:7px;">
+<img src="facebook.jpg" style="width:50px;margin-left:30px;box-shadow:0 0 5px;border-radius:7px;">
+<img src="instagram.jpg" style="width:50px;margin-left:30px;box-shadow:0 0 5px;border-radius:7px;">
+<img src="twitter.jpg" style="width:50px;margin-left:30px;box-shadow:0 0 5px;border-radius:7px;">
+<img src="linkedin.png" style="width:50px;margin-left:30px;box-shadow:0 0 5px;border-radius:7px;">
 </div>
+</div>
+<div id="demo" class="carousel slide" data-ride="carousel">
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+    
+    <li data-target="#demo" data-slide-to="3"></li>
+    <li data-target="#demo" data-slide-to="4"></li>
+  </ul>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="p1.jpeg" alt="police" width="1100" height="500">
+      <div class="carousel-caption">
+        <h3>MP POLICE</h3>
+        <p>We had such a great time </p>
+      </div>   
+    </div>
+    <div class="carousel-item">
+      <img src="p3.jpeg" alt="police" width="1100" height="500">
+      <div class="carousel-caption">
+        <h3>memories</h3>
+        <p>Thank you</p>
+      </div>   
+    </div>
+    <div class="carousel-item">
+      <img src="p2.jpeg" alt="police" width="1100" height="500">
+      <div class="carousel-caption">
+        <h3>mp police</h3>
+        <p></p>
+      </div>   
+    </div>
+    <div class="carousel-item">
+      <img src="p5.jpeg" alt="police" width="1100" height="500">
+      <div class="carousel-caption">
+        <h3>mp police</h3>
+        <p>police united</p>
+      </div>   
+    </div>
+    <div class="carousel-item">
+      <img src="p6.jpeg" alt="police" width="1100" height="500">
+      <div class="carousel-caption">
+        <h3>mp police</h3>
+        <p>Training</p>
+      </div>   
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
 </div>
 <div id="contactus" style="background-color:rgb(0, 115, 153);height:250px;">
   <table style="margin:auto;">
-    <tr><td id="cut">Adress:</td><td id="cut">NIT Patna, hostel sone A</td></tr>
-<tr><td id="cut">Email-id:</td><td id="cut">anupmishra@gmail.com</td></tr>
-    <tr><td id="cut">mobile no:</td><td id="cut">7050959444,9155384666</td></tr>
-   <tr><td id="cut">follow us on:</td><td id="cut">facebook,twitter,instagram</td></tr>
+    <tr><td id="cu">Adress:</td><td id="cu">NIT Patna, hostel sone A</td></tr>
+<tr><td id="cu">Email-id:</td><td id="cu">anupmishra@gmail.com</td></tr>
+    <tr><td id="cu">mobile no:</td><td id="cu">7050959444,9155384666</td></tr>
+   <tr><td id="cu">follow us on:</td><td id="cu">facebook,twitter,instagram</td></tr>
 
   </table> 
+
+  
+
 </div>	
 </body>
 </html>
