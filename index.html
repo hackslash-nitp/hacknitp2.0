@@ -1,38 +1,4 @@
-<?php
-$mobile="";
-if($_SERVER['REQUEST_METHOD']=="POST")
-{
-$what=$_POST['what'];
-if($what=="signup"){
-$email=$_POST['email'];
-$fname=$_POST['firstname'];
-$sname=$_POST['secondname'];
-$mobile=$_POST['mobile'];
-$password=$_POST['password'];
-$conpassword=$_POST['conpassword'];
-if($password==$conpassword && !empty($password) &&strlen($password)>5)
-{
-$hostname="localhost";
-$dbusername="u669999615_vpstation";
-$dbpassword="asdfghjkl";
-$dbname="u669999615_vpstation";
-$conn=mysqli_connect($hostname,$dbusername,$dbpassword,$dbname);
-if(mysqli_connect_error())
-{
-die('Connect Error');
-}
-else{
-$sqll="SELECT * FROM userdetail where mobile='$mobile'";    
-$res=mysqli_query($conn,$sqll);
-$check=mysqli_num_rows($res);
-if($check == 0)
-{
-$sql="INSERT INTO userdetail (email,password,fname,sname,mobile)
-values('$email','$password','$fname','$sname','$mobile')
-";
-if($conn->query($sql))
-{
-?>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  
 <script>
@@ -55,50 +21,6 @@ var xml= new XMLHttpRequest();
 
 });
 </script>
-<?php
-}
-else{
-echo "Not Sent";
-}
-}
-else{
-    echo "<script>
-    alert ('Account already exist with this number');
-    </script>";
-}
-}
-}
-}
-
-if($what=="signupfp"){
-$email=$_POST['email'];
-$fname=$_POST['policesn'];
-$mobile=$_POST['mobile'];
-$password=$_POST['password'];
-$conpassword=$_POST['conpassword'];
-if($password==$conpassword && !empty($password) &&strlen($password)>5)
-{
-$hostname="localhost";
-$dbusername="u669999615_vpstation";
-$dbpassword="asdfghjkl";
-$dbname="u669999615_vpstation";
-$conn=mysqli_connect($hostname,$dbusername,$dbpassword,$dbname);
-if(mysqli_connect_error())
-{
-die('Connect Error');
-}
-else{
-$sqql="SELECT * FROM policedetail where mobile='$mobile'";    
-$res1=mysqli_query($conn,$sqql);
-$check1=mysqli_num_rows($res1);
-if($check1 == 0)
-{    
-$sql="INSERT INTO policedetail (email,password,policesn,mobile)
-values('$email','$password','$fname','$mobile')
-";
-if($conn->query($sql))
-{
-?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <script>
@@ -121,103 +43,15 @@ var xml= new XMLHttpRequest();
 
 });
 </script>
-<?php
-}
-  else{
-  echo "Not Sent";
-  }
-}
-else{
-    echo "<script>
-    alert ('Account already exist with this number');
-    </script>";
-}
-}
-}
-}
-
-
-if($what=="login")
-{
-$mobile=$_POST['loginmobile'];
-$password=$_POST['loginpassword'];
-$hostname="localhost";
-$dbusername="u669999615_vpstation";
-$dbpassword="asdfghjkl";
-$dbname="u669999615_vpstation";
-$conn=mysqli_connect($hostname,$dbusername,$dbpassword,$dbname);
-if(mysqli_connect_error())
-{
-die('Connect Error');
-}
-else{
-$sql="SELECT * from userdetail where mobile='$mobile'";
-$result1 = mysqli_query($conn,$sql);
-$resultcheck1 = mysqli_num_rows($result1);        
-if($resultcheck1==0)
-{
-?>
 <script type="text/javascript">
 alert("Sign Up First");
 </script>
-<?php
-}
-if ($resultcheck1>0) {
-while($row=$result1->fetch_assoc())
-{
-if($row['password']==$password)
-{
-session_start();
-$_SESSION['mobile']=$mobile;
-$_SESSION['seenou']=0;
-$_SESSION['seenop']=0;
-
-?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
 window.location.href = "cases.php";
 });
 </script>
-<?php
-}
-else{
-?>
-<script>
-alert("Mobile No or Password is Incorrect.")
-</script>
-
-<?php
-
-}
-}
-
-}
-}
-}
-
-
-
-if($what=="loginfp")
-{
-$mobile=$_POST['loginmobile'];
-$password=$_POST['loginpassword'];
-$hostname="localhost";
-$dbusername="u669999615_vpstation";
-$dbpassword="asdfghjkl";
-$dbname="u669999615_vpstation";
-$conn=mysqli_connect($hostname,$dbusername,$dbpassword,$dbname);
-if(mysqli_connect_error())
-{
-die('Connect Error');
-}
-else{
-$sql="SELECT * from policedetail where mobile='$mobile'";
-$result1 = mysqli_query($conn,$sql);
-$resultcheck1 = mysqli_num_rows($result1);        
-if($resultcheck1==0)
-{
-?>
 <script>
 alert("Sign Up First");
 </script>
@@ -237,30 +71,6 @@ $(document).ready(function(){
 window.location.href = "admin.php";
 });
 </script>
-<?php
-}
-else{
-?>
-<script>
-alert("Mobile No or Password is Incorrect.")
-</script>
-
-<?php
-
-}
-}
-}
-
-}
-
-}
-
-
-
-}
-
-?>
-
 <!DOCTYPE html>
 
 <html>
